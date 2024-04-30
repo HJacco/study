@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+#logging:
+#  level:
+#    # 根据不同的类设定不同级别
+#    root: info
+##    study.*: debug
+##    nobyte.*: debug
+#  config: classpath:log4j2-spring.xml
