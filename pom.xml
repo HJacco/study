@@ -24,6 +24,7 @@
         <module>protobuf</module>
         <module>crawler</module>
         <module>guice-study</module>
+        <module>flink-study</module>
     </modules>
 
     <properties>

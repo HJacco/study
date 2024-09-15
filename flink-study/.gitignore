@@ -1,0 +1,23 @@
+##  git ignore ##
+
+## .idea ##
+.idea/
+*/.idea/
+*/*/.idea/
+
+## .iml ##
+*.iml
+*/*.iml
+*/*/*.iml
+
+## target ##
+target/
+*/target/
+*/*/target/
+
+## __ConfigTemp ##
+*/__ConfigTemp/
+*/*/__ConfigTemp/
+common-offline-web/src/main/webapp/dmp-common/monitor-link-charts-bak.html
+common-offline-web/src/main/webapp/dmp-common/assets/js/monitor-link-charts-bak.js
+common-offline-web/src/main/webapp/dmp-common-offline-dev/monitor-link-charts-bak.html
