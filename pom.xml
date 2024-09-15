@@ -21,7 +21,7 @@
         <module>datastructure-algorithm</module>
         <module>rxjava</module>
         <module>reactor-java</module>
-        <module>springboot</module>
+        <module>protobuf</module>
         <module>crawler</module>
         <module>guice-study</module>
     </modules>
