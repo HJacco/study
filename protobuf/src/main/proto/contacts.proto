@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+
+package com.study.protobuf.entity;
+
+option java_multiple_files = true;
+option java_package = "com.study.protobuf.entity";
+//option java_outer_classname = "ContactsProtos";
+
+message PeopleInfo {
+  string name = 1;
+  int32 age = 2;
+}
