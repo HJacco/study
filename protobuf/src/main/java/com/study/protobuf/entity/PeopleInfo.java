@@ -28,6 +28,7 @@ private static final long serialVersionUID = 0L;
   }
   private PeopleInfo() {
     name_ = "";
+    phoneNumber_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -93,6 +94,67 @@ private static final long serialVersionUID = 0L;
     return age_;
   }
 
+  public static final int PHONE_NUMBER_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private java.util.List<com.study.protobuf.entity.Phone> phoneNumber_;
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.study.protobuf.entity.Phone> getPhoneNumberList() {
+    return phoneNumber_;
+  }
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.study.protobuf.entity.PhoneOrBuilder> 
+      getPhoneNumberOrBuilderList() {
+    return phoneNumber_;
+  }
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  @java.lang.Override
+  public int getPhoneNumberCount() {
+    return phoneNumber_.size();
+  }
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  @java.lang.Override
+  public com.study.protobuf.entity.Phone getPhoneNumber(int index) {
+    return phoneNumber_.get(index);
+  }
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  @java.lang.Override
+  public com.study.protobuf.entity.PhoneOrBuilder getPhoneNumberOrBuilder(
+      int index) {
+    return phoneNumber_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -113,6 +175,9 @@ private static final long serialVersionUID = 0L;
     if (age_ != 0) {
       output.writeInt32(2, age_);
     }
+    for (int i = 0; i < phoneNumber_.size(); i++) {
+      output.writeMessage(3, phoneNumber_.get(i));
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -128,6 +193,10 @@ private static final long serialVersionUID = 0L;
     if (age_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, age_);
+    }
+    for (int i = 0; i < phoneNumber_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, phoneNumber_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -148,6 +217,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (getAge()
         != other.getAge()) return false;
+    if (!getPhoneNumberList()
+        .equals(other.getPhoneNumberList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -163,6 +234,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + AGE_FIELD_NUMBER;
     hash = (53 * hash) + getAge();
+    if (getPhoneNumberCount() > 0) {
+      hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getPhoneNumberList().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -296,6 +371,13 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       name_ = "";
       age_ = 0;
+      if (phoneNumberBuilder_ == null) {
+        phoneNumber_ = java.util.Collections.emptyList();
+      } else {
+        phoneNumber_ = null;
+        phoneNumberBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -322,9 +404,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.study.protobuf.entity.PeopleInfo buildPartial() {
       com.study.protobuf.entity.PeopleInfo result = new com.study.protobuf.entity.PeopleInfo(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.study.protobuf.entity.PeopleInfo result) {
+      if (phoneNumberBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          phoneNumber_ = java.util.Collections.unmodifiableList(phoneNumber_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.phoneNumber_ = phoneNumber_;
+      } else {
+        result.phoneNumber_ = phoneNumberBuilder_.build();
+      }
     }
 
     private void buildPartial0(com.study.protobuf.entity.PeopleInfo result) {
@@ -356,6 +451,32 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAge() != 0) {
         setAge(other.getAge());
+      }
+      if (phoneNumberBuilder_ == null) {
+        if (!other.phoneNumber_.isEmpty()) {
+          if (phoneNumber_.isEmpty()) {
+            phoneNumber_ = other.phoneNumber_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensurePhoneNumberIsMutable();
+            phoneNumber_.addAll(other.phoneNumber_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.phoneNumber_.isEmpty()) {
+          if (phoneNumberBuilder_.isEmpty()) {
+            phoneNumberBuilder_.dispose();
+            phoneNumberBuilder_ = null;
+            phoneNumber_ = other.phoneNumber_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            phoneNumberBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getPhoneNumberFieldBuilder() : null;
+          } else {
+            phoneNumberBuilder_.addAllMessages(other.phoneNumber_);
+          }
+        }
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -393,6 +514,19 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
+            case 26: {
+              com.study.protobuf.entity.Phone m =
+                  input.readMessage(
+                      com.study.protobuf.entity.Phone.parser(),
+                      extensionRegistry);
+              if (phoneNumberBuilder_ == null) {
+                ensurePhoneNumberIsMutable();
+                phoneNumber_.add(m);
+              } else {
+                phoneNumberBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -512,6 +646,318 @@ private static final long serialVersionUID = 0L;
       age_ = 0;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.study.protobuf.entity.Phone> phoneNumber_ =
+      java.util.Collections.emptyList();
+    private void ensurePhoneNumberIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        phoneNumber_ = new java.util.ArrayList<com.study.protobuf.entity.Phone>(phoneNumber_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.study.protobuf.entity.Phone, com.study.protobuf.entity.Phone.Builder, com.study.protobuf.entity.PhoneOrBuilder> phoneNumberBuilder_;
+
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public java.util.List<com.study.protobuf.entity.Phone> getPhoneNumberList() {
+      if (phoneNumberBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(phoneNumber_);
+      } else {
+        return phoneNumberBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public int getPhoneNumberCount() {
+      if (phoneNumberBuilder_ == null) {
+        return phoneNumber_.size();
+      } else {
+        return phoneNumberBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public com.study.protobuf.entity.Phone getPhoneNumber(int index) {
+      if (phoneNumberBuilder_ == null) {
+        return phoneNumber_.get(index);
+      } else {
+        return phoneNumberBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder setPhoneNumber(
+        int index, com.study.protobuf.entity.Phone value) {
+      if (phoneNumberBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.set(index, value);
+        onChanged();
+      } else {
+        phoneNumberBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder setPhoneNumber(
+        int index, com.study.protobuf.entity.Phone.Builder builderForValue) {
+      if (phoneNumberBuilder_ == null) {
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        phoneNumberBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder addPhoneNumber(com.study.protobuf.entity.Phone value) {
+      if (phoneNumberBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.add(value);
+        onChanged();
+      } else {
+        phoneNumberBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder addPhoneNumber(
+        int index, com.study.protobuf.entity.Phone value) {
+      if (phoneNumberBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.add(index, value);
+        onChanged();
+      } else {
+        phoneNumberBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder addPhoneNumber(
+        com.study.protobuf.entity.Phone.Builder builderForValue) {
+      if (phoneNumberBuilder_ == null) {
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.add(builderForValue.build());
+        onChanged();
+      } else {
+        phoneNumberBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder addPhoneNumber(
+        int index, com.study.protobuf.entity.Phone.Builder builderForValue) {
+      if (phoneNumberBuilder_ == null) {
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        phoneNumberBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder addAllPhoneNumber(
+        java.lang.Iterable<? extends com.study.protobuf.entity.Phone> values) {
+      if (phoneNumberBuilder_ == null) {
+        ensurePhoneNumberIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, phoneNumber_);
+        onChanged();
+      } else {
+        phoneNumberBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder clearPhoneNumber() {
+      if (phoneNumberBuilder_ == null) {
+        phoneNumber_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        phoneNumberBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public Builder removePhoneNumber(int index) {
+      if (phoneNumberBuilder_ == null) {
+        ensurePhoneNumberIsMutable();
+        phoneNumber_.remove(index);
+        onChanged();
+      } else {
+        phoneNumberBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public com.study.protobuf.entity.Phone.Builder getPhoneNumberBuilder(
+        int index) {
+      return getPhoneNumberFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public com.study.protobuf.entity.PhoneOrBuilder getPhoneNumberOrBuilder(
+        int index) {
+      if (phoneNumberBuilder_ == null) {
+        return phoneNumber_.get(index);  } else {
+        return phoneNumberBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public java.util.List<? extends com.study.protobuf.entity.PhoneOrBuilder> 
+         getPhoneNumberOrBuilderList() {
+      if (phoneNumberBuilder_ != null) {
+        return phoneNumberBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(phoneNumber_);
+      }
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public com.study.protobuf.entity.Phone.Builder addPhoneNumberBuilder() {
+      return getPhoneNumberFieldBuilder().addBuilder(
+          com.study.protobuf.entity.Phone.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public com.study.protobuf.entity.Phone.Builder addPhoneNumberBuilder(
+        int index) {
+      return getPhoneNumberFieldBuilder().addBuilder(
+          index, com.study.protobuf.entity.Phone.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 手机号，字符串List
+     * </pre>
+     *
+     * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+     */
+    public java.util.List<com.study.protobuf.entity.Phone.Builder> 
+         getPhoneNumberBuilderList() {
+      return getPhoneNumberFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.study.protobuf.entity.Phone, com.study.protobuf.entity.Phone.Builder, com.study.protobuf.entity.PhoneOrBuilder> 
+        getPhoneNumberFieldBuilder() {
+      if (phoneNumberBuilder_ == null) {
+        phoneNumberBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.study.protobuf.entity.Phone, com.study.protobuf.entity.Phone.Builder, com.study.protobuf.entity.PhoneOrBuilder>(
+                phoneNumber_,
+                ((bitField0_ & 0x00000004) != 0),
+                getParentForChildren(),
+                isClean());
+        phoneNumber_ = null;
+      }
+      return phoneNumberBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:com.study.protobuf.entity.PeopleInfo)

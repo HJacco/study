@@ -26,4 +26,48 @@ public interface PeopleInfoOrBuilder extends
    * @return The age.
    */
   int getAge();
+
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  java.util.List<com.study.protobuf.entity.Phone> 
+      getPhoneNumberList();
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  com.study.protobuf.entity.Phone getPhoneNumber(int index);
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  int getPhoneNumberCount();
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  java.util.List<? extends com.study.protobuf.entity.PhoneOrBuilder> 
+      getPhoneNumberOrBuilderList();
+  /**
+   * <pre>
+   * 手机号，字符串List
+   * </pre>
+   *
+   * <code>repeated .com.study.protobuf.entity.Phone phone_number = 3;</code>
+   */
+  com.study.protobuf.entity.PhoneOrBuilder getPhoneNumberOrBuilder(
+      int index);
 }

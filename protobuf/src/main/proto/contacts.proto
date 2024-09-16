@@ -5,9 +5,12 @@ package com.study.protobuf.entity;
 
 option java_multiple_files = true;
 option java_package = "com.study.protobuf.entity";
-//option java_outer_classname = "ContactsProtos";
+
+import "phone.proto";
 
 message PeopleInfo {
   string name = 1;
   int32 age = 2;
+  // 手机号，字符串List
+  repeated Phone phone_number = 3;
 }
